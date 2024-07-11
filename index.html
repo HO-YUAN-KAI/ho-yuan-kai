@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小賭怡情 - 大賭郭台銘</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <button class="exit-button" onclick="window.location.href='https://www.nkust.edu.tw/';">離開</button>
+    <div class="container">
+        <div class="panel left-panel">
+            <h3>當前餘額: <span id="balance">0</span></h3>
+            <input type="number" id="deposit" placeholder="輸入入金金額">
+            <button class="btn" onclick="addDeposit()">入金</button>
+
+            <h3>機率調整</h3>
+            <button class="btn" onclick="adjustProbability(5)">5% (賠率: 10倍)</button>
+            <button class="btn" onclick="adjustProbability(10)">10% (賠率: 5倍)</button>
+            <button class="btn" onclick="adjustProbability(25)">25% (賠率: 2倍)</button>
+            <button class="btn" onclick="adjustProbability(50)">50% (賠率: 1.4倍)</button>
+            <button class="btn" onclick="adjustProbability(75)">75% (賠率: 1.1倍)</button>
+            
+            <h3>下注設置</h3>
+            <input type="number" id="betAmount" placeholder="輸入下注金額">
+            <button class="btn" onclick="handleClick(this)">下注</button>
+            <button class="btn" onclick="handleClick(this, 100)">下注100</button>
+            <button class="btn" onclick="handleClick(this, 50)">下注50</button>
+        </div>
+        
+        <div class="panel center-panel">
+            <div class="slot-machine">
+                <div class="slot"><div class="slot-inner" id="slot0"></div></div>
+                <div class="slot"><div class="slot-inner" id="slot1"></div></div>
+                <div class="slot"><div class="slot-inner" id="slot2"></div></div>
+                <div class="slot"><div class="slot-inner" id="slot3"></div></div>
+            </div>
+            <p id="rangeDisplay"></p>
+            <p id="winOrLose"></p>
+            <div class="rules">
+                <h2>遊戲規則：</h2>
+                <ol>
+                    <li><h3>選擇機率與對應的賠率，「會顯示機率範圍」</h3></li>
+                    <li><h3>輸入下注金額或使用快速下注按鈕</h3></li>
+                    <li><h3>按下「下注」按鈕</h3></li>
+                    <li><h3>4位數拉霸機會開始高速轉動</h3></li>
+                    <li><h3>數字輪會從右到左依次停止，顯示 0000-9999 之間的隨機數</h3></li>
+                    <li><h3>如果隨機數位於當前區間內，則獲勝</h3></li>
+                    <li><h3>獲勝時，獲得下注金額乘以當前賠率的獎金</h3></li>
+                    <li><h3>失敗時，損失下注金額(哭)</h3></li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="panel right-panel">
+            <h3>遊戲記錄</h3>
+            <div class="table-container">
+                <table id="recordTable">
+                    <thead>
+                        <tr>
+                            <th>回合</th>
+                            <th>機率</th>
+                            <th>下注金額</th>
+                            <th>隨機數</th>
+                            <th>結果</th>
+                            <th>餘額變化</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 表格內容將通過 JavaScript 動態添加 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script3.js"></script>
+</body>
+</html>
